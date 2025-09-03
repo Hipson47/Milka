@@ -1,0 +1,30 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+# Meta Prompt: Python_Enterprise_Rules
+
+toolchain:
+  - "Ruff → linter & formatter (replaces Black/isort/flake8)."
+  - "Mypy strict for type checking."
+  - "uv for dependency & environment management."
+  - "Pytest + coverage for tests."
+
+checklists:
+  performance:
+    - "Use set/dict over list for lookups."
+    - "Profile (cProfile/timeit) before optimizing."
+    - "Use asyncio for I/O, multiprocessing for CPU-bound tasks."
+  security:
+    - "Validate all inputs (Pydantic or explicit checks)."
+    - "Never use bare except Exception."
+    - "Avoid dynamic eval/exec."
+  maintainability:
+    - "Prefer composition over inheritance."
+    - "Keep functions small and single-responsibility."
+    - "Document with docstrings (PEP257)."
+  tests:
+    - "Always cover normal + edge cases."
+    - "Use property-based testing where possible."
+    - "Ensure >90% coverage on critical modules."

@@ -1,0 +1,23 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+# Meta Prompt: Multi_Agent_Coordination
+
+principles:
+  - "Large tasks must be decomposed into subtasks."
+  - "Use hierarchical orchestration: main agent = orchestrator, sub-agents handle parts."
+  - "Sub-agents communicate via JSON {role, task, output}."
+  - "Each sub-agent must run CoC/ToT reasoning and report back."
+
+example_roles:
+  - "agent-tests → designs test cases first."
+  - "agent-arch → checks architectural consistency."
+  - "agent-sec → performs security review."
+  - "agent-dev → implements diffs."
+
+output_schema:
+  - "main_plan"
+  - "sub_agent_outputs"
+  - "final_merge"

@@ -1,0 +1,18 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+# Auto Attach Rules
+
+- pattern: "*.py"
+  attach: ["python-enterprise.mdc", "prompt-strategies.mdc"]
+
+- pattern: "tests/*"
+  attach: ["python-enterprise.mdc"]
+
+- pattern: "*.md"
+  attach: ["project-knowledge.mdc"]
+
+- pattern: "*"
+  attach: ["agent-core.mdc", "multi-agent.mdc"]
