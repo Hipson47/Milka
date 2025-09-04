@@ -1,0 +1,16 @@
+{
+  "name": "nanobanana-e2e-tests",
+  "version": "1.0.0",
+  "description": "End-to-end tests for NanoBanana inpainting application",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:headed": "playwright test --headed",
+    "report": "playwright show-report",
+    "install-browsers": "playwright install --with-deps"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  }
+}

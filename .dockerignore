@@ -1,0 +1,241 @@
+# ====================
+# Version Control
+# ====================
+.git/
+.gitignore
+.gitattributes
+.gitmodules
+
+# ====================
+# Environment & Secrets
+# ====================
+.env
+.env.*
+!.env.example
+.envrc
+.secrets/
+secrets.json
+*.key
+*.pem
+*.crt
+api-keys.txt
+
+# ====================
+# Documentation
+# ====================
+README.md
+docs/
+*.md
+!package.json
+!requirements.txt
+
+# ====================
+# Development Tools
+# ====================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ====================
+# OS Generated
+# ====================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ====================
+# Node.js (Frontend Context)
+# ====================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.npm
+.eslintcache
+*.tgz
+.yarn-integrity
+
+# Build outputs (exclude from Docker build context)
+dist/
+build/
+.next/
+out/
+.nuxt/
+.turbo/
+
+# Testing artifacts
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+tests-e2e/test-results/
+tests-e2e/playwright-report/
+tests-load/results/
+
+# ====================
+# Python (Backend Context)
+# ====================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments (exclude from Docker)
+.venv/
+venv/
+ENV/
+env/
+
+# Python testing
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+nosetests.xml
+
+# ====================
+# Logs & Debugging
+# ====================
+logs/
+*.log
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# ====================
+# Temporary Files
+# ====================
+*.tmp
+*.temp
+.tmp/
+.temp/
+tmp/
+temp/
+
+# ====================
+# Cache Directories
+# ====================
+.cache/
+.parcel-cache/
+
+# ====================
+# IDE & Editor Files
+# ====================
+.cursor/
+*.swp
+*.swo
+
+# ====================
+# Docker Related
+# ====================
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+.docker/
+
+# ====================
+# CI/CD & Deployment
+# ====================
+.github/
+.gitlab-ci.yml
+.travis.yml
+.circleci/
+Jenkinsfile
+.drone.yml
+
+# ====================
+# Package Manager Locks (keep only necessary ones)
+# ====================
+# Keep package.json and requirements.txt for dependency installation
+# But exclude lock files to avoid version conflicts in container
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+poetry.lock
+Pipfile.lock
+
+# ====================
+# Security & Monitoring
+# ====================
+.trivy/
+.snyk
+audit-results.json
+security-scan-results/
+*.trace
+*.prof
+metrics/
+traces/
+lighthouse-results/
+
+# ====================
+# Backup Files
+# ====================
+*.bak
+*.backup
+*.orig
+*.rej
+
+# ====================
+# Database Files
+# ====================
+*.db
+*.sqlite
+*.sqlite3
+
+# ====================
+# Large Files & Models
+# ====================
+*.h5
+*.pkl
+*.joblib
+models/
+checkpoints/
+
+# ====================
+# Test Directories
+# ====================
+tests-e2e/
+tests-contract/
+tests-load/
+
+# ====================
+# Build Tools
+# ====================
+Makefile
+.editorconfig
+.prettierrc*
+.eslintrc*
+tsconfig*.json
+vite.config.*
+webpack.config.*
+rollup.config.*

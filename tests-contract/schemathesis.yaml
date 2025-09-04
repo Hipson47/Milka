@@ -1,0 +1,210 @@
+openapi: 3.0.3
+info:
+  title: NanoBanana Inpainting API
+  description: AI-powered image inpainting service using NanoBanana
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000
+    description: Local development server
+
+paths:
+  /api/health:
+    get:
+      summary: Health check endpoint
+      operationId: health_check
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - status
+                  - timestamp
+                  - version
+                properties:
+                  status:
+                    type: string
+                    enum: [ok, degraded]
+                  timestamp:
+                    type: string
+                    format: date-time
+                  version:
+                    type: string
+                    example: "1.0.0"
+
+  /api/edit:
+    post:
+      summary: Perform image inpainting
+      operationId: inpaint_image
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - image
+                - mask
+                - prompt
+              properties:
+                image:
+                  type: string
+                  format: binary
+                  description: Source image (PNG/JPEG)
+                mask:
+                  type: string
+                  format: binary
+                  description: Mask image (PNG with alpha channel)
+                prompt:
+                  type: string
+                  minLength: 1
+                  maxLength: 500
+                  description: Text description for inpainting
+                  example: "A beautiful red rose"
+                seed:
+                  type: integer
+                  minimum: 0
+                  maximum: 2147483647
+                  description: Random seed for reproducibility
+                  example: 42
+                strength:
+                  type: number
+                  minimum: 0.0
+                  maximum: 1.0
+                  default: 0.8
+                  description: Inpainting strength
+                  example: 0.7
+                guidance_scale:
+                  type: number
+                  minimum: 1.0
+                  maximum: 20.0
+                  default: 7.5
+                  description: Guidance scale for diffusion
+                  example: 8.0
+      responses:
+        '200':
+          description: Inpainting successful
+          headers:
+            X-Processing-Time:
+              description: Processing time in seconds
+              schema:
+                type: string
+            X-Request-ID:
+              description: Unique request identifier
+              schema:
+                type: string
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - success
+                  - error_message
+                  - error_code
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  error_message:
+                    type: string
+                    example: "Prompt cannot be empty"
+                  error_code:
+                    type: string
+                    example: "HTTP_422"
+                  request_id:
+                    type: string
+                    example: "12345678-1234-1234-1234-123456789012"
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Rate limit exceeded"
+                  retry_after:
+                    type: integer
+                    example: 60
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - success
+                  - error_message
+                  - error_code
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  error_message:
+                    type: string
+                    example: "Internal server error"
+                  error_code:
+                    type: string
+                    example: "INTERNAL_ERROR"
+                  request_id:
+                    type: string
+        '502':
+          description: Upstream service error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - success
+                  - error_message
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  error_message:
+                    type: string
+                    example: "NanoBanana API unavailable"
+
+  /metrics:
+    get:
+      summary: Prometheus metrics endpoint
+      operationId: metrics
+      responses:
+        '200':
+          description: Prometheus metrics
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: |
+                  # HELP http_requests_total Total HTTP requests
+                  # TYPE http_requests_total counter
+                  http_requests_total{method="GET",endpoint="/api/health",status_code="200"} 1.0
+
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      required:
+        - success
+        - error_message
+      properties:
+        success:
+          type: boolean
+          example: false
+        error_message:
+          type: string
+        error_code:
+          type: string
+        request_id:
+          type: string

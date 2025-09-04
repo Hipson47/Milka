@@ -1,0 +1,303 @@
+# ====================
+# Environment & Secrets
+# ====================
+.env
+.env.*
+!.env.example
+.envrc
+.secrets/
+secrets.json
+*.key
+*.pem
+*.crt
+api-keys.txt
+
+# ====================
+# Python
+# ====================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+.env/
+venv/
+ENV/
+env/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Python testing
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+nosetests.xml
+coverage/
+
+# Python profiling
+.prof
+
+# ====================
+# Node.js & Frontend
+# ====================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+jspm_packages/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Next.js build output
+.next/
+out/
+
+# Nuxt.js build / generate output
+.nuxt
+dist/
+
+# Gatsby files
+.cache/
+public/
+
+# Vite build output
+dist/
+dist-ssr/
+
+# Rollup build output
+build/
+
+# Webpack bundle analyzer
+bundle-analyzer-report.html
+
+# Turbo
+.turbo/
+
+# ====================
+# Logs & Debug
+# ====================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# ====================
+# Docker & Containers
+# ====================
+.docker/
+*.pid
+*.sock
+docker-compose.override.yml
+.dockerignore.backup
+
+# ====================
+# Testing & Coverage
+# ====================
+test-results/
+playwright-report/
+coverage/
+.nyc_output/
+.coverage
+htmlcov/
+.pytest_cache/
+.cache/
+junit.xml
+test_results.xml
+
+# E2E test artifacts
+tests-e2e/test-results/
+tests-e2e/playwright-report/
+tests-load/results/
+
+# ====================
+# IDE & Editors
+# ====================
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Cursor IDE
+.cursor/
+!.cursor/rules/
+
+# ====================
+# Build Artifacts
+# ====================
+*.o
+*.a
+*.lib
+*.dll
+*.exe
+*.out
+*.app
+
+# ====================
+# Temporary Files
+# ====================
+*.tmp
+*.temp
+.tmp/
+.temp/
+tmp/
+temp/
+
+# ====================
+# OS Generated
+# ====================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ====================
+# Monitoring & Observability
+# ====================
+*.trace
+*.prof
+metrics/
+traces/
+lighthouse-results/
+axe-results.xml
+
+# ====================
+# Backup & Archive
+# ====================
+*.bak
+*.backup
+*.orig
+*.rej
+*.swp
+*.swo
+
+# ====================
+# Database
+# ====================
+*.db
+*.sqlite
+*.sqlite3
+
+# ====================
+# AI/ML Models (if any)
+# ====================
+*.h5
+*.pkl
+*.joblib
+models/
+checkpoints/
+
+# ====================
+# Documentation Build
+# ====================
+site/
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# ====================
+# Package Managers
+# ====================
+.pnp
+.pnp.js
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# ====================
+# Security Scanning
+# ====================
+.trivy/
+.snyk
+audit-results.json
+security-scan-results/
+
+# ====================
+# Performance & Profiling
+# ====================
+*.trace
+*.cpuprofile
+*.heapprofile
+.clinic/
